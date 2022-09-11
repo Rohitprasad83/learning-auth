@@ -12,7 +12,7 @@ function Login() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   }
   return (
-    <div>
+    <div className="container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit} className="form">
         <input
@@ -21,6 +21,7 @@ function Login() {
           name="email"
           onChange={changeHandler}
           value={credentials.email}
+          className="input-field"
         />
         <input
           type="password"
@@ -28,8 +29,11 @@ function Login() {
           name="password"
           onChange={changeHandler}
           value={credentials.password}
+          className="input-field"
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="button">
+          Login
+        </button>
       </form>
     </div>
   );

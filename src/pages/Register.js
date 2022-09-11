@@ -12,7 +12,7 @@ function Register() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   }
   return (
-    <div>
+    <div className="container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -21,6 +21,7 @@ function Register() {
           name="email"
           onChange={changeHandler}
           value={credentials.email}
+          className="input-field"
         />
         <input
           type="password"
@@ -28,8 +29,11 @@ function Register() {
           name="password"
           onChange={changeHandler}
           value={credentials.password}
+          className="input-field"
         />
-        <button type="submit">Register</button>
+        <button type="submit" className="button">
+          Register
+        </button>
       </form>
     </div>
   );

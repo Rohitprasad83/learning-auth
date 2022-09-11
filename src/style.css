@@ -4,14 +4,22 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.container {
+  text-align: center;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .input-field {
   border: 2px solid grey;
-  width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem;
+  cursor: pointer;
 }
