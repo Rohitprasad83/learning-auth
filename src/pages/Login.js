@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import FirebaseAuthService from '../FirebaseAuthService';
 function Login() {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(credentials);
+    try {
+      await FirebaseAuthService.loginUser(
+        credentials.email,
+        credentials.password
+      );
+      setCredentials({ email: '', password: '' });
+      alert('Successfully Logged In');
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   function changeHandler(e) {
@@ -34,6 +44,7 @@ function Login() {
         <button type="submit" className="button">
           Login
         </button>
+        <Link to="/register">Create an account? Sign up</Link>
       </form>
     </div>
   );

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './style.css';
-import { Login } from './pages';
+import { Login, Register } from './pages';
 export default function App() {
   return (
     <div>
-      <Login />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
