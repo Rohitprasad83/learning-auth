@@ -3,7 +3,6 @@ import FirebaseAuthService from '../FirebaseAuthService';
 import { useAuth } from '../context/authContext';
 
 function Home() {
-  const navigate = useNavigate();
   const { user, setUser } = useAuth();
   FirebaseAuthService.subscribeToAuthChanges(setUser);
   return (
