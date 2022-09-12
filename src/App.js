@@ -1,11 +1,16 @@
-import React from "react";
-import "./style.css";
-
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './style.css';
+import { Home, Login, Register, ForgotPassword } from './pages';
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/reset" element={<ForgotPassword />} />
+      </Routes>
     </div>
   );
 }
