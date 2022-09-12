@@ -25,6 +25,14 @@ function Login() {
   function changeHandler(e) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   }
+
+  async function loginWithGoogle() {
+    try {
+      await FirebaseAuthService.loginWithGoogle();
+    } catch (error) {
+      alert(error.message);
+    }
+  }
   return (
     <div className="container">
       <h2>Login</h2>
@@ -45,8 +53,12 @@ function Login() {
           value={credentials.password}
           className="input-field"
         />
+        <Link to="/reset">Forgot Password?</Link>
         <button type="submit" className="button">
           Login
+        </button>
+        <button type="button" className="button" onClick={loginWithGoogle}>
+          Login Using Google
         </button>
         <Link to="/register">Create an account? Sign up</Link>
       </form>
