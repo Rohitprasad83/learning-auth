@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FirebaseAuthService from '../FirebaseAuthService';
+import { useAuth } from '../context/authContext';
+
 function Login() {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const { user, setUser } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -12,6 +15,7 @@ function Login() {
         credentials.password
       );
       setCredentials({ email: '', password: '' });
+      FirebaseAuthService.subscribeToAuthChanges(setUser);
       alert('Successfully Logged In');
     } catch (error) {
       alert(error.message);
